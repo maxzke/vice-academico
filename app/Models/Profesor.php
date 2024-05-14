@@ -22,10 +22,10 @@ class Profesor extends Model
     ];
 
     public function carreras(){
-        return $this->belongsToMany(Adscripcion::class)->withPivot('fecha');
+        return $this->belongsToMany(Carrera::class);
     }
     public function grados(){
-        return $this->belongsToMany(Grado::class)->withPivot('fecha');
+        return $this->belongsToMany(Grado::class);
     }
     public function campus(){
         return $this->belongsTo(Campus::class);
