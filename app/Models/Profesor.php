@@ -11,7 +11,6 @@ class Profesor extends Model
     protected $table = 'profesores';
     protected $fillable = [
         'campus_id',
-        'carrera_id',
         'sni_id',
         'categoria_id',
         'nombre',
@@ -22,8 +21,11 @@ class Profesor extends Model
     ];
 
     public function carreras(){
-        return $this->belongsToMany(Carrera::class);
+        return $this->belongsToMany(Carrera::class)->withPivot('fecha');                                                     
     }
+    // public function carrera(){
+    //     return $this->belongsTo(Carrera::class);
+    // }
     public function grados(){
         return $this->belongsToMany(Grado::class);
     }

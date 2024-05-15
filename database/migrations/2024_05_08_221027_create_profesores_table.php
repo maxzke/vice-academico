@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('campus_id');
             $table->foreign('campus_id')->references('id')->on('campus');
-            $table->foreignId('carrera_id');
-            $table->foreign('carrera_id')->references('id')->on('carreras');
             $table->foreignId('sni_id');
             $table->foreign('sni_id')->references('id')->on('sni');
             $table->foreignId('categoria_id');
@@ -27,7 +25,6 @@ return new class extends Migration
             $table->unique(['nombre','apellido_p','apellido_m']);
             $table->timestamp('ingreso');
             $table->string('sexo');
-            
             $table->timestamps();
         });
     }

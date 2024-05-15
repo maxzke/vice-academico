@@ -25,9 +25,17 @@ class CarreraProfesorResource extends Resource
     {
         return $form
             ->schema([
+                // Forms\Components\Select::make('profesor_id')
+                // ->relationship('profesores','nombre')
+                // ->preload()
+                // ->searchable(),
                 Forms\Components\TextInput::make('profesor_id')
                     ->required()
                     ->numeric(),
+                // Forms\Components\Select::make('carrera_id')
+                // ->relationship('carreras','nombre')
+                // ->preload()
+                // ->searchable(),
                 Forms\Components\TextInput::make('carrera_id')
                     ->required()
                     ->numeric(),

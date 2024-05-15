@@ -26,49 +26,32 @@ class ProfesorResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('nombre')
-            ->required()
-            ->maxLength(255),
-        Forms\Components\TextInput::make('apellido_p')
-            ->required()
-            ->maxLength(255),
-        Forms\Components\TextInput::make('apellido_m')
-            ->required()
-            ->maxLength(255),
-        Forms\Components\DateTimePicker::make('ingreso')
-            ->required(),
-        Forms\Components\TextInput::make('sexo')
-            ->required()
-            ->maxLength(255),
-                // Forms\Components\TextInput::make('campus_id')
-                //     ->required()
-                //     ->numeric(),
-                Forms\Components\Select::make('campus_id')
-                ->relationship('campus','nombre')
-                ->preload()
-                ->searchable(),
-                // Forms\Components\TextInput::make('carrera_id')
-                //     ->required()
-                //     ->numeric(),
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('apellido_p')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('apellido_m')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\DateTimePicker::make('ingreso')
+                    ->required(),
+                Forms\Components\DateTimePicker::make('fecha')
+                ->required(),
+                Forms\Components\TextInput::make('sexo')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('campus_id')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('sni_id')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('categoria_id')
+                    ->required()
+                    ->numeric(),
                 Forms\Components\Select::make('carrera_id')
                 ->relationship('carreras','nombre')
-                ->preload()
-                ->searchable(),
-                // Forms\Components\TextInput::make('sni_id')
-                //     ->required()
-                //     ->numeric(),
-                Forms\Components\Select::make('sni_id')
-                ->relationship('sni','nombre')
-                ->preload()
-                ->searchable(),
-                // Forms\Components\TextInput::make('categoria_id')
-                //     ->required()
-                //     ->numeric(),
-                Forms\Components\Select::make('categoria_id')
-                ->relationship('categoria','nombre')
-                ->preload()
-                ->searchable(),
-                Forms\Components\Select::make('grado_id')
-                ->relationship('grados','nombre')
                 ->preload()
                 ->searchable(),
                 
@@ -80,9 +63,6 @@ class ProfesorResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('campus_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('carrera_id')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sni_id')
